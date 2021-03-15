@@ -2,8 +2,7 @@ import { useEffect, useState } from "react";
 import { FetchDataResult } from "./fetch-data-results";
 
 export const useFetchData = <T>(
-  callback: () => Promise<T>,
-  deps: any[] = []
+  callback: () => Promise<T>
 ): FetchDataResult<T> => {
   const [state, setState] = useState<FetchDataResult<T>>({
     data: null,
