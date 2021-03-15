@@ -11,12 +11,9 @@ export const useFetchData = <T>(
     status: "loading"
   });
 
-  useEffect(() => {
-    setState({ data: null, error: null, status: "loading" });
-    callback()
-      .then(data => setState({ data, error: null, status: "success" }))
-      .catch(error => setState({ data: null, error, status: "error" }));
-  }, [...deps]); // eslint-disable-line react-hooks/exhaustive-deps
+  callback()
+    .then(data => setState({ data, error: null, status: "success" }))
+    .catch(error => setState({ data: null, error, status: "error" }));
 
   return state;
 };
